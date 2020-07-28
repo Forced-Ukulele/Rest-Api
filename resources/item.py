@@ -27,7 +27,7 @@ class Item(Resource):
         if ItemModel.find_by_name(name):
             return {'message': "item with name '{}' already exists.".format(name)},400
         data = Item.parser.parse_args()
-        item = ItemModel(name, **data])
+        item = ItemModel(name, **data)
         try:
             item.save_to_db()
         except:
